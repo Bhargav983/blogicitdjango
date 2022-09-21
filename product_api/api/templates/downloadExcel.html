@@ -1,0 +1,33 @@
+
+<h1> Download Excel here </h1>
+<form action="/savereport/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <input type="submit"
+           value="Download"
+           style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">  </form>
+
+  <p></p>
+        <hr>
+
+     <!-- check value {{check}} -->
+<!-- 
+        {% for row in excel_data %}
+            {% for cell in row %}
+                {{ cell }}&nbsp;&nbsp;
+            {% endfor %}
+            <br>
+        {% endfor %} -->
+
+{% if check == 1 %} 
+<script>
+    alert("Successfully ...Data inserted to database") 
+</script>
+
+{% endif %}
+{% if check == 0 %} 
+     <h1>  Failed ...to insert data  to database .</h1>  
+{% else %}
+<h1>{{message}} </h1>
+{% endif %}
+

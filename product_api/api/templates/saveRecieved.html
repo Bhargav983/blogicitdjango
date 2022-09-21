@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registeration</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <form action="/saverecieved/" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="AccountNo" placeholder="AccountNo"><br>
+        <!-- <input type="text" name="last_name" placeholder="Last Name"><br>
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="email" name="email" placeholder="email"><br>
+        <input type="password" name="password1" placeholder="Password"><br>
+        <input type="password" name="password2" placeholder="Confirm Password"><br> -->
+        <input type="Submit">
+
+    </form>
+    {% if AccountType %}
+    <div>
+        <!-- <h3> AccountNo :{{AccountNo}}  </h3>
+        <h3> AccountType: {{AccountType}}  </h3>
+        <h3> Name: {{Name}}  </h3>
+        <h3> Balance: {{PreviousBalance}}  </h3>
+        <h3> OpenDate: {{OpenDate}}  </h3>
+        <h3> Mobile: {{Mobile}}  </h3>
+        <h3> AgentName: {{AgentName}}  </h3> -->
+       
+        <form action="/saveinsert/" method="post">
+            {% csrf_token %}
+    
+<table>
+
+    <!-- <tr>
+        <td>Reciept No: </td>
+        <td><input type="text" name="RecieptNo" placeholder="RecieptNo" value={{RecieptNo}} > </td>
+    </tr> -->
+    <tr>
+      <td>AccountNo :</td>
+      <td><input type="text" name="AccountNo" placeholder="AccountNo" value={{AccountNo}} readonly></td>
+  
+    </tr>
+    <tr>
+      <td> AccountType:</td>
+      <td><input type="text" name="AccountType" placeholder="AccountType" value={{AccountType}} readonly></td>
+  
+    </tr>
+
+    <tr>
+        <td>name: </td>
+        <td> <input type="text" name="Name" placeholder="Name" value={{Name}} readonly></td>
+    </tr>
+    <tr>
+        <td> Balance: </td>
+        <td> <input type="number" name="PreviousBalance" placeholder="PreviousBalance" value={{PreviousBalance}} readonly></td>
+    </tr>
+    <tr>
+        <td> Open Date: </td>
+        <td> <input type="text" name="OpenDate" placeholder="OpenDate" value={{OpenDate}} readonly> </td>
+    </tr>
+    <tr>
+        <td> Mobile: </td>
+        <td> <input type="text" name="Mobile" placeholder="Mobile" value={{Mobile}} readonly ></td>
+    </tr>
+    <tr>
+        <td> AgentName: </td>
+        <td> <input type="text" name="AgentName" placeholder="AgentName" value={{AgentName}} readonly> </td>
+    </tr>
+    <tr>
+        <td> Recieved:</td>
+        <td> <input type="number" name="Recieved" placeholder="Recieved Amount" value={{Recieved}} ></td>
+    </tr>
+  </table>
+             
+            <input type="Submit">
+    
+        </form>
+    </div>
+    {% else %}
+
+    {% endif %}
+    
+
+</body>
+</html>
